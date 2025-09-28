@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-frontend
+  labels:
+    app: node-frontend
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node-frontend
+  template:
+    metadata:
+      labels:
+        app: node-frontend
+    spec:
+      containers:
+        - name: node-frontend
+          image: ux007893/nodefrontend:v1.0
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              cpu: "500m"
+              memory: "0.5Gi"
+            limits:
+              cpu: "1000m"
+              memory: "1Gi"
+

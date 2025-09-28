@@ -24,6 +24,6 @@ COPY --from=builder /app .
 EXPOSE 5000
 
 # Command to run the application (replace with your app start command)
-CMD ["python", "app.py"]
+CMD ["uvicorn", "app_main:app", "--host", "0.0.0.0", "--port", "5000"]
 
 
