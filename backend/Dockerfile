@@ -15,10 +15,10 @@ FROM python:3.11-slim
 WORKDIR /app
 
 # Copy installed packages from build stage
-COPY --from=build /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=builder /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 
 # Copy application code
-COPY --from=build /app .
+COPY --from=builder /app .
 
 # Expose application port (change if your app uses a different port)
 EXPOSE 5000
